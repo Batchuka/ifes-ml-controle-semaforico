@@ -1,4 +1,3 @@
-import json
 import time
 from semaforo_class import Semaforos
 from kmeans_class import KMeansModel
