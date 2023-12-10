@@ -1,0 +1,10 @@
+setup.py
+pocTrafficControlIA.egg-info/PKG-INFO
+pocTrafficControlIA.egg-info/SOURCES.txt
+pocTrafficControlIA.egg-info/dependency_links.txt
+pocTrafficControlIA.egg-info/requires.txt
+pocTrafficControlIA.egg-info/top_level.txt
+src/__init__.py
+src/__main__.py
+src/kmeans_class.py
+src/semaforo_class.py
