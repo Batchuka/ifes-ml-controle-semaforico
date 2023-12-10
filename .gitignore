@@ -1,0 +1,17 @@
+# Arquivos temporários
+*.pyc
+
+# Pasta de cache Python
+__pycache__/
+
+# Arquivos de configuração específicos do ambiente
+venv/
+
+# Arquivos LaTeX
+*.aux
+*.log
+*.synctex.gz
+*.pdf
+
+# Arquivos de sistema (macOS)
+__MACOSX/
