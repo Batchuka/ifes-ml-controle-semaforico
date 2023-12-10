@@ -1,17 +1,17 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.cluster import KMeans
-from sklearn.preprocessing import LabelEncoder
 
 
 class KMeansModel:
     def __init__(self, num_clusters):
         self.num_clusters = num_clusters
         self.kmeans_model = KMeans(n_clusters=num_clusters, random_state=42)
-        self.tempos_de_verde_fixos = [15, 30, 60]
         self.ids_semaforos = None
 
+
     def preparar_dados_para_kmeans(self, dados):
+
         # Converte os dados do formato JSON para um DataFrame do pandas
         df = pd.DataFrame(list(dados.values()))
 
@@ -40,16 +40,23 @@ class KMeansModel:
         # Aplica o KMeans aos dados
         self.kmeans_model.fit(self.X)
 
-    def obter_tempo_de_verde_por_id(self, semaforo_id):
-        # Obtém o rótulo do cluster associado ao semáforo
-        idx = self.ids_semaforos[self.ids_semaforos == semaforo_id].index[0]
-        cluster = self.kmeans_model.predict(self.X[idx].reshape(1, -1))[0]
+    def obter_tempo_de_verde(self, dados_semaforo):
+        # Prepara os dados do semáforo para o modelo KMeans
+        dados_semaforo = self.preparar_dados_para_kmeans(dados_semaforo)
+
+        # Obtém o rótulo do cluster associado aos dados do semáforo
+        cluster = self.kmeans_model.predict(dados_semaforo)
+
+        # Mapeia os rótulos do cluster para os tempos de verde
+        mapeamento = {0: 15, 1: 30, 2: 60}
+
+        # Aplica o mapeamento para obter os tempos de verde correspondentes
+        tempos_de_verde = [mapeamento[label] for label in cluster]
 
         # Retorna o tempo de verde fixo associado ao cluster
-        return self.tempos_de_verde_fixos[cluster]
+        return tempos_de_verde
     
     def plotar_resultado_kmeans(self):
-
         if self.X is None:
             print("Nenhum dado para plotar. Treine o modelo e atualize os dados antes de chamar este método.")
             return
@@ -59,10 +66,25 @@ class KMeansModel:
         dados_com_cluster = pd.DataFrame(self.X, columns=["qtd_pedestres", "qtd_veiculos"])
         dados_com_cluster["cluster"] = labels
 
+        # Define cores específicas para cada cluster
+        cores_clusters = {0: 'blue', 1: 'green', 2: 'red'}
+
         # Plota os dados e os centróides
-        plt.scatter(dados_com_cluster["qtd_pedestres"], dados_com_cluster["qtd_veiculos"], c=dados_com_cluster["cluster"], cmap='viridis', alpha=0.5)
-        plt.scatter(self.kmeans_model.cluster_centers_[:, 0], self.kmeans_model.cluster_centers_[:, 1], c='red', marker='x', s=200)
+        scatter = plt.scatter(dados_com_cluster["qtd_pedestres"], dados_com_cluster["qtd_veiculos"], c=dados_com_cluster["cluster"].map(cores_clusters), alpha=0.5)
+        plt.scatter(self.kmeans_model.cluster_centers_[:, 0], self.kmeans_model.cluster_centers_[:, 1], c=list(cores_clusters.values()), marker='x', s=200)
+
+        # Adiciona a legenda manualmente
+        legend_labels = {0: 30, 1: 15, 2: 60}
+        handles = [plt.Line2D([0], [0], marker='o', color='w', label=f"{legend_labels[value]} segundos", markerfacecolor=color, markersize=10) for value, color in cores_clusters.items()]
+
+        # Adiciona a legenda
+        plt.legend(handles=handles)
+
         plt.xlabel("Quantidade de Pedestres")
         plt.ylabel("Quantidade de Veículos")
         plt.title("Resultado do KMeans")
         plt.show()
+
+
+
+

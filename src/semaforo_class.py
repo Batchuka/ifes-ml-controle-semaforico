@@ -1,6 +1,4 @@
-import json
 import random
-import numpy as np
 
 class Semaforo:
 
@@ -18,9 +16,6 @@ class Semaforo:
     def obter_json(self):
         return {self.semaforo_id: self.dados}
 
-    def atualizar_tempo_verde(self, novo_tempo_verde):
-        self.dados["tempo_verde"] = novo_tempo_verde
-
     def variar_dados_tempo(self):
         # Adiciona uma pequena variação aos dados de quantidade de pedestres e veículos
         self.dados["qtq_pedestres"] = max(0, self.dados["qtd_pedestres"] + random.randint(-2, 2))
@@ -37,6 +32,12 @@ class Semaforos:
             dados.update(semaforo.obter_json())
         return dados
 
-    def atualizar_tempos_de_verde(self, tempos_de_verde):
-        for semaforo, novo_tempo_verde in zip(self.lista_semaforos, tempos_de_verde):
-            semaforo.atualizar_tempo_verde(novo_tempo_verde)
+    def atualizar_tempos_de_verde(self, novos_tempos_verde):
+
+        # Certifique-se de que o comprimento da lista de novos tempos de verde seja igual ao número de semáforos
+        if len(novos_tempos_verde) != len(self.lista_semaforos):
+            raise ValueError("O número de novos tempos de verde não corresponde ao número de semáforos")
+
+        # Atualiza os tempos de verde para cada semáforo
+        for semaforo, novo_tempo_verde in zip(self.lista_semaforos, novos_tempos_verde):
+            semaforo.dados["tempo_verde"] = novo_tempo_verde

@@ -13,76 +13,46 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Conference Paper Title*\\
-\thanks{Identify applicable funding agency here. If none, delete this.}
+\title{Inteligência Artificial Aplicada ao Controle de Semáforos para Otimização de Fluxo Veicular e Pedestre*\\
+\thanks{Trabalho realizado por Matheus Corteletti Delfino e orientado pelo Prof. Gustavo Maia no Instituto Federal do Espírito Santo, Campus Serra, curso de Engenharia de Controle e Automação, na disciplina de Inteligência Artificial.}
 }
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\author{\IEEEauthorblockN{Matheus Corteletti Delfino}
+\IEEEauthorblockA{\textit{Instituto Federal do Espírito Santo, Campus Serra} \\
+\textit{Engenharia de Controle e Automação}\\
+Serra, Brasil \\
+matheus.delfino@ifes.edu.br}
 \and
-\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{4\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{5\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
-\and
-\IEEEauthorblockN{6\textsuperscript{th} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\IEEEauthorblockN{Prof. Gustavo Maia}
+\IEEEauthorblockA{\textit{Instituto Federal do Espírito Santo, Campus Serra} \\
+\textit{Engenharia de Controle e Automação}\\
+Serra, Brasil \\
+gustavo.maia@ifes.edu.br}
 }
 
 \maketitle
 
+
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+O crescente desafio do tráfego urbano requer soluções inovadoras para aprimorar a eficiência dos semáforos. Neste artigo, propomos uma abordagem fundamentada em inteligência artificial para a otimização dos tempos de sinal verde, empregando o algoritmo de agrupamento KMeans.
 \end{abstract}
 
 \begin{IEEEkeywords}
-component, formatting, style, styling, insert
+Controle, Mobilidade Urbana, Otimização, Simulação , KMeans
 \end{IEEEkeywords}
 
-\section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+\section{Introdução}
+O aumento constante no tráfego urbano demanda soluções inovadoras para melhorar a eficiência dos semáforos. Este artigo apresenta uma abordagem baseada em inteligência artificial para otimizar os tempos de verde em semáforos, utilizando o algoritmo de agrupamento KMeans.
 
-\section{Ease of Use}
+\section{Objetivo do Projeto}
 
-\subsection{Maintaining the Integrity of the Specifications}
+Nosso objetivo principal é desenvolver um sistema de controle de tráfego adaptativo que leve em consideração não apenas a quantidade de veículos e pedestres, mas também características específicas de cada cruzamento. Buscamos criar uma solução que otimize a fluidez do tráfego, reduzindo os tempos de espera nos semáforos.
 
-The IEEEtran class file is used to format your paper and style the text. All margins, 
-column widths, line spaces, and text fonts are prescribed; please do not 
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement 
-and others are deliberate, using specifications that anticipate your paper 
-as one part of the entire proceedings, and not as an independent document. 
-Please do not revise any of the current designations.
+\section{Metodologia}
 
-\section{Prepare Your Paper Before Styling}
+Utilizamos uma abordagem baseada em aprendizado de máquina, implementando o algoritmo KMeans para agrupar cruzamentos semelhantes. Para isso, consideramos variáveis como quantidade de pedestres, veículos, e características da via. O modelo resultante é então integrado a um simulador de tráfego para avaliação de desempenho.
+
+\section{Desenvolvimento}
 Before you begin to format your paper, first write and save the content as a 
 separate text file. Complete all content and organizational editing before 
 formatting. Please note sections \ref{AA}--\ref{SCM} below for more information on 
@@ -92,13 +62,13 @@ Keep your text and graphic files separate until after the text has been
 formatted and styled. Do not number text heads---{\LaTeX} will do that 
 for you.
 
-\subsection{Abbreviations and Acronyms}\label{AA}
+\subsection{Modelo KMeans}
 Define abbreviations and acronyms the first time they are used in the text, 
 even after they have been defined in the abstract. Abbreviations such as 
 IEEE, SI, MKS, CGS, ac, dc, and rms do not have to be defined. Do not use 
 abbreviations in the title or heads unless they are unavoidable.
 
-\subsection{Units}
+\subsection{Atualização dos Semáforos}
 \begin{itemize}
 \item Use either SI (MKS) or CGS as primary units. (SI units are encouraged.) English units may be used as secondary units (in parentheses). An exception would be the use of English units as identifiers in trade, such as ``3.5-inch disk drive''.
 \item Avoid combining SI and CGS units, such as current in amperes and magnetic field in oersteds. This often leads to confusion because equations do not balance dimensionally. If you must use mixed units, clearly state the units for each quantity that you use in an equation.
@@ -106,7 +76,7 @@ abbreviations in the title or heads unless they are unavoidable.
 \item Use a zero before decimal points: ``0.25'', not ``.25''. Use ``cm\textsuperscript{3}'', not ``cc''.)
 \end{itemize}
 
-\subsection{Equations}
+\subsection{Simulação}
 Number equations consecutively. To make your 
 equations more compact, you may use the solidus (~/~), the exp function, or 
 appropriate exponents. Italicize Roman symbols for quantities and variables, 
@@ -122,7 +92,7 @@ symbols in your equation have been defined before or immediately following
 the equation. Use ``\eqref{eq}'', not ``Eq.~\eqref{eq}'' or ``equation \eqref{eq}'', except at 
 the beginning of a sentence: ``Equation \eqref{eq} is . . .''
 
-\subsection{\LaTeX-Specific Advice}
+\section{Resultados e Avaliação}
 
 Please use ``soft'' (e.g., \verb|\eqref{Eq}|) cross references instead
 of ``hard'' references (e.g., \verb|(1)|). That will make it possible
@@ -244,14 +214,14 @@ with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization
 quantities and units. For example, write ``Temperature (K)'', not 
 ``Temperature/K''.
 
-\section*{Acknowledgment}
+\section*{Conclusão}
 
 The preferred spelling of the word ``acknowledgment'' in America is without 
 an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
 G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
 acknowledgments in the unnumbered footnote on the first page.
 
-\section*{References}
+\section*{Referências}
 
 Please number citations consecutively within brackets \cite{b1}. The 
 sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 

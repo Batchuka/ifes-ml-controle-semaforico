@@ -8,7 +8,7 @@
             "name": "Simular",
             "type": "python",
             "request": "launch",
-            "program": "script_simulador.py",
+            "program": "src/script_simulador.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }
