@@ -1,0 +1,10 @@
+setup.py
+pocKmeansTrafficControl/__init__.py
+pocKmeansTrafficControl/__main__.py
+pocKmeansTrafficControl/kmeans_class.py
+pocKmeansTrafficControl/semaforo_class.py
+pocKmeansTrafficControl.egg-info/PKG-INFO
+pocKmeansTrafficControl.egg-info/SOURCES.txt
+pocKmeansTrafficControl.egg-info/dependency_links.txt
+pocKmeansTrafficControl.egg-info/requires.txt
+pocKmeansTrafficControl.egg-info/top_level.txt
