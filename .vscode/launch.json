@@ -8,7 +8,7 @@
             "name": "Simular",
             "type": "python",
             "request": "launch",
-            "program": "src/script_simulador.py",
+            "program": "pocKmeansTrafficControl/__main__.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }

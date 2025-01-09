@@ -1,6 +1,6 @@
 import time
-from .semaforo_class import Semaforos
-from .kmeans_class import KMeansModel
+from semaforo_class import Semaforos
+from kmeans_class import KMeansModel
 
 # Cria instâncias das classes Semaforos e KMeansModel
 semaforos = Semaforos()
